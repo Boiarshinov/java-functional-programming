@@ -17,6 +17,7 @@ import java.util.stream.Stream;
  * Part of these tests are solutions of exercises 2.7-2.14.
  */
 public class FunctionsAreObjectsTest {
+    //todo: add missing exercises
 
     /**
      * Usage examples of {@link Function#andThen(Function)} and {@link Function#compose(Function)}.
