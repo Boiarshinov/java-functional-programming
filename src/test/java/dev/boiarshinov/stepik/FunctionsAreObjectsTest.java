@@ -206,7 +206,7 @@ class Account {
 }
 
 /**
- * Class for exercise 2.10.
+ * Interface for exercise 2.10.
  */
 @FunctionalInterface
 interface TernaryIntPredicate {
