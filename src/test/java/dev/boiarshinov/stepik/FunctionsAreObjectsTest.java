@@ -5,10 +5,9 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -193,6 +192,60 @@ public class FunctionsAreObjectsTest {
             {input, onlyPositive, true}
         };
     }
+
+    /**
+     * Exercise 2.14 "The chain of responsibility pattern in the functional style".
+     */
+    @Test
+    private void chainOfResponsibility() {
+        final String data =
+            "<type>payment</type>" +
+            "<sum>100000</sum>" +
+            "<order_id>e94dc619-6172-4ffe-aae8-63112c551570</order>" +
+            "<desc>We'd like to buy an elephant</desc>";
+        final String expected = "<request>" + "<transaction>" + data + "</transaction>" +
+                "<digest>CZVMYTgc3iiOdJjFP+6dhQ==</digest>" + "</request>";
+
+        final Request actual = commonRequestHandler.handle(new Request(data));
+
+        Assert.assertEquals(actual.getData(), expected);
+    }
+
+    /**
+     * Accepts a request and returns new request with data wrapped in the tag <transaction>...</transaction>
+     */
+    final static RequestHandler wrapInTransactionTag =
+        (req) -> new Request(String.format("<transaction>%s</transaction>", req.getData()));
+
+    /**
+     * Accepts a request and returns a new request with calculated digest inside the tag <digest>...</digest>
+     */
+    final static RequestHandler createDigest =
+        (req) -> {
+            String digest = "";
+            try {
+                final MessageDigest md5 = MessageDigest.getInstance("MD5");
+                final byte[] digestBytes = md5.digest(req.getData().getBytes(StandardCharsets.UTF_8));
+                digest = new String(Base64.getEncoder().encode(digestBytes));
+            } catch (Exception ignored) { }
+            return new Request(req.getData() + String.format("<digest>%s</digest>", digest));
+        };
+
+    /**
+     * Accepts a request and returns a new request with data wrapped in the tag <request>...</request>
+     */
+    final static RequestHandler wrapInRequestTag =
+        (req) -> new Request(String.format("<request>%s</request>", req.getData()));
+
+    /**
+     * It should represents a chain of responsibility combined from another handlers.
+     * The format: commonRequestHandler = handler1.setSuccessor(handler2.setSuccessor(...))
+     * The combining method setSuccessor may has another name
+     */
+    final static RequestHandler commonRequestHandler =
+        wrapInRequestTag.combine(
+            createDigest.combine(
+                wrapInTransactionTag));
 }
 
 /**
@@ -211,4 +264,24 @@ class Account {
 @FunctionalInterface
 interface TernaryIntPredicate {
     boolean test(int a, int b, int c);
+}
+
+/**
+ * Class for exercise 2.14.
+ */
+@Data
+class Request {
+    private final String data;
+}
+
+/**
+ * Interface for exercise 2.14.
+ */
+@FunctionalInterface
+interface RequestHandler {
+    Request handle(Request request);
+
+    default RequestHandler combine(RequestHandler handler) {
+        return (v) -> handle(handler.handle(v));
+    }
 }
