@@ -26,4 +26,6 @@ public class IntroductionToStreamsTest {
         Assert.assertEquals(statistics.getAverage(), 27778);
         Assert.assertEquals(statistics.getSum(), 1_543_206_790);
     }
+
+    //test commit from another computer
 }
