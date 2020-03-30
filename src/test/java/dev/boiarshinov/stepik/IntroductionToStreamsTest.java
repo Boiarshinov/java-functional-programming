@@ -80,6 +80,11 @@ public class IntroductionToStreamsTest {
         Assert.assertEquals(actual, expected);
     }
 
+    /**
+     * @param text some text.
+     * @param badWords list of bad words.
+     * @return stream of bad words found in text sorted and without duplicates.
+     */
     public static Stream<String> createBadWordsDetectingStream(final String text, final List<String> badWords) {
         return Arrays.stream(text.split(" "))
             .filter(badWords::contains)
