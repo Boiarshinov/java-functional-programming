@@ -31,7 +31,6 @@ public class IntroductionToStreamsTest {
         Assert.assertEquals(statistics.getAverage(), 27778);
         Assert.assertEquals(statistics.getSum(), 1_543_206_790);
     }
-
     /**
      * Exercise 2.17 "Checking if a number is prime".
      */
@@ -85,10 +84,51 @@ public class IntroductionToStreamsTest {
      * @param badWords list of bad words.
      * @return stream of bad words found in text sorted and without duplicates.
      */
-    public static Stream<String> createBadWordsDetectingStream(final String text, final List<String> badWords) {
+    private static Stream<String> createBadWordsDetectingStream(final String text, final List<String> badWords) {
         return Arrays.stream(text.split(" "))
             .filter(badWords::contains)
             .distinct()
             .sorted();
+    }
+
+    /**
+     * Exercise 2.19 "Numbers filtering".
+     */
+    @Test(dataProvider = "mixTwoStreams")
+    private void mixTwoStreams(int[] evens, int[] odds, int[] expectedInts) {
+        final IntStream evenStream = Arrays.stream(evens);
+        final IntStream oddStream = Arrays.stream(odds);
+
+        final List<Integer> actualNumbers = createFilteringStream(evenStream, oddStream)
+            .boxed()
+            .collect(Collectors.toList());
+
+        Assert.assertEquals(expectedInts.length, actualNumbers.size());
+        Arrays.stream(expectedInts).forEach(x -> Assert.assertTrue(actualNumbers.contains(x)));
+    }
+
+    /**
+     * @param evenStream stream with even numbers.
+     * @param oddStream stream with odd numbers.
+     * @return stream with elements from both streams which is divisible by 3 and 5.
+     */
+    public static IntStream createFilteringStream(final IntStream evenStream, final IntStream oddStream) {
+        return IntStream.concat(evenStream, oddStream)
+            .filter(x -> x % 3 == 0)
+            .filter(x -> x % 5 == 0)
+            .sorted()
+            .skip(2);
+    }
+
+    /**
+     * Data provider for exercise 2.19.
+     * @return two input intStreams and expected result IntStream.
+     */
+    @DataProvider(name = "mixTwoStreams")
+    public Object[][] provideIntStreams() {
+        return new Object[][] {
+            {new int[]{2, 4}, new int[]{1, 3}, new int[]{}},
+            {new int[]{30, 60, 90}, new int[]{75}, new int[]{75, 90}}
+        };
     }
 }
