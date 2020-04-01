@@ -1,6 +1,9 @@
 package dev.boiarshinov.stepik;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
@@ -16,7 +19,7 @@ import org.testng.annotations.Test;
  * These tests are related to topic 1.5 - Learn more about map, reduce and forEach.
  * Part of these tests are solutions of exercises 2.20-2.24.
  */
-public class MapReduceAndForEach {
+public class MapReduceAndForEachTest {
 
     /**
      * Example of flatMap usage.
@@ -145,11 +148,125 @@ public class MapReduceAndForEach {
             {operator4, Arrays.asList(1, 2, 3, 4, 5)}
         };
     }
-}
 
-@Data
-class Book {
-    private final String name;
-    private final int year;
-    private final List<String> authors;
+    /**
+     * Exercise 2.23 "The general number of employees".
+     */
+    @Test
+    private void flattingObjectsFields() {
+        final Employee william = new Employee("William", 20_000L);
+        final Employee sophia = new Employee("Sophia", 10_000L);
+        final Employee john = new Employee("John", 50_000L);
+        final Department dep1 = new Department("dep-1", "111-1", Arrays.asList(william, sophia));
+        final Department dep2 = new Department("dep-2", "222-1", Collections.singletonList(john));
+        final List<Department> departments = Arrays.asList(dep1, dep2);
+
+        final long actual = calcNumberOfEmployees(departments, 20_000L);
+
+        Assert.assertEquals(actual, 1L);
+    }
+
+    /**
+     * @param departments list of departments.
+     * @param threshold minimum amount of salary to filter employees.
+     * @return count of employees which working in departments with code starts with "111-"
+     * and with salary more or equals to threshold.
+     */
+    private static long calcNumberOfEmployees(List<Department> departments, long threshold) {
+        return departments.stream()
+            .filter(department -> department.getCode().startsWith("111-"))
+            .map(Department::getEmployees)
+            .flatMap(Collection::stream)
+            .distinct()
+            .filter(employee -> employee.getSalary() >= threshold)
+            .count();
+    }
+
+    /**
+     * Exercise 2.24 "The total sum of canceled transactions".
+     */
+    @Test
+    private void transactionSum() {
+        final Transaction transaction1 = new Transaction("774cedda", State.CANCELED, 1000L, new Date());
+        final Account account1 = new Account("1001", 0L, Collections.singletonList(transaction1));
+        final Transaction transaction2 = new Transaction("337868a7", State.FINISHED, 8000L, new Date());
+        final Transaction transaction3 = new Transaction("f8047f86", State.CANCELED, 10000L, new Date());
+        final Account account2 = new Account("1002", 8000L, Arrays.asList(transaction2, transaction3));
+
+        final long actual = calcSumOfCancelledTransOnNonEmptyAccounts(Arrays.asList(account1, account2));
+
+        Assert.assertEquals(actual, 10_000L);
+    }
+
+    /**
+     * @param accounts list of {@link Account}.
+     * @return sum of cancelled transactions on non empty accounts.
+     */
+    public static long calcSumOfCancelledTransOnNonEmptyAccounts(List<Account> accounts) {
+        return accounts.stream()
+            .filter(account -> account.getBalance() > 0)
+            .map(Account::getTransactions)
+            .flatMap(Collection::stream)
+            .filter(transaction -> transaction.getState() == State.CANCELED)
+            .map(Transaction::getSum)
+            .reduce(0L, (acc, sum) -> acc += sum);
+    }
+
+    /**
+     * Class for example of flatMap usage.
+     */
+    @Data
+    private static class Book {
+
+        private final String name;
+        private final int year;
+        private final List<String> authors;
+    }
+    /**
+     * Class for exercise 2.23.
+     */
+    @Data
+    private static class Employee {
+
+        private final String name;
+        private final Long salary;
+    }
+    /**
+     * Class for exercise 2.23.
+     */
+    @Data
+    private static class Department {
+
+        private final String name;
+        private final String code;
+        private final List<Employee> employees;
+    }
+
+    /**
+     * Class for exercise 2.24.
+     */
+    @Data
+    class Transaction {
+        private final String uuid;
+        private final State state;
+        private final Long sum;
+        private final Date created;
+    }
+
+    /**
+     * Enum for exercise 2.24.
+     */
+    enum State {
+        CANCELED, FINISHED, PROCESSING
+    }
+
+    /**
+     * Class for exercise 2.24.
+     */
+    @Data
+    private static class Account {
+        private final String number;
+        private final Long balance;
+        private final List<Transaction> transactions;
+    }
 }
