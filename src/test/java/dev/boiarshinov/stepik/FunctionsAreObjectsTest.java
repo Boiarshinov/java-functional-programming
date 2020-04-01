@@ -247,42 +247,43 @@ public class FunctionsAreObjectsTest {
         wrapInRequestTag.combine(
             createDigest.combine(
                 wrapInTransactionTag));
-}
 
-/**
- * Class for exercise 2.9.
- */
-@Data
-class Account {
-    private final String number;
-    private final Long balance;
-    private final boolean isLocked;
-}
-
-/**
- * Interface for exercise 2.10.
- */
-@FunctionalInterface
-interface TernaryIntPredicate {
-    boolean test(int a, int b, int c);
-}
-
-/**
- * Class for exercise 2.14.
- */
-@Data
-class Request {
-    private final String data;
-}
-
-/**
- * Interface for exercise 2.14.
- */
-@FunctionalInterface
-interface RequestHandler {
-    Request handle(Request request);
-
-    default RequestHandler combine(RequestHandler handler) {
-        return (v) -> handle(handler.handle(v));
+    /**
+     * Class for exercise 2.9.
+     */
+    @Data
+    private static class Account {
+        private final String number;
+        private final Long balance;
+        private final boolean isLocked;
     }
+
+    /**
+     * Interface for exercise 2.10.
+     */
+    @FunctionalInterface
+    interface TernaryIntPredicate {
+        boolean test(int a, int b, int c);
+    }
+
+    /**
+     * Class for exercise 2.14.
+     */
+    @Data
+    private static class Request {
+        private final String data;
+    }
+
+    /**
+     * Interface for exercise 2.14.
+     */
+    @FunctionalInterface
+    interface RequestHandler {
+        Request handle(Request request);
+
+        default RequestHandler combine(RequestHandler handler) {
+            return (v) -> handle(handler.handle(v));
+        }
+    }
+
 }

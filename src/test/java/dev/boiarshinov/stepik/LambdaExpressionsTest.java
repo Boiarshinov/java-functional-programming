@@ -188,12 +188,12 @@ public class LambdaExpressionsTest {
 
         Assert.assertEquals(addAdditionals.apply(input), expected);
     }
-}
 
-/**
- * Custom functional interface for exercise 2.3.
- */
-@FunctionalInterface
-interface SevenStringsFunction {
-    String apply(String first, String second, String third, String fourth, String fifth, String sixth, String seventh);
+    /**
+     * Custom functional interface for exercise 2.3.
+     */
+    @FunctionalInterface
+    interface SevenStringsFunction {
+        String apply(String first, String second, String third, String fourth, String fifth, String sixth, String seventh);
+    }
 }
