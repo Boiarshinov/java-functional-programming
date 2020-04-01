@@ -2,7 +2,9 @@ package dev.boiarshinov.stepik;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 import lombok.Data;
@@ -96,6 +98,51 @@ public class MapReduceAndForEach {
             {0, 0, 0},
             {7, 9, 16},
             {21, 30, 125}
+        };
+    }
+
+    /**
+     * Exercise 2.22 "Understanding of flatMap together with stream creating".
+     */
+    @Test(dataProvider = "flatMap")
+    private void flatMap(final UnaryOperator<List<Integer>> operator, final List<Integer> expected) {
+        final List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        final List<Integer> actual = operator.apply(numbers);
+
+        Assert.assertEquals(actual.size(), expected.size());
+        actual.forEach(n -> Assert.assertTrue(expected.contains(n)));
+    }
+
+    /**
+     * Data provider for exercise 2.22.
+     * @return unary operator that change incoming list of integers and expected result list.
+     */
+    @DataProvider(name = "flatMap")
+    private Object[][] flatMapProvider() {
+        final UnaryOperator<List<Integer>> operator1 = list -> list.stream()
+                .flatMap(n -> Stream.generate(() -> n).limit(n))
+                .collect(Collectors.toList());
+
+        final UnaryOperator<List<Integer>> operator2 = list -> list.stream()
+            .flatMapToInt(n -> IntStream.rangeClosed(1, n))
+            .boxed()
+            .collect(Collectors.toList());
+
+        final UnaryOperator<List<Integer>> operator3 = list -> list.stream()
+            .flatMapToInt(n -> IntStream.iterate(n, val -> val + 1).limit(n))
+            .boxed()
+            .collect(Collectors.toList());
+
+        final UnaryOperator<List<Integer>> operator4 = list -> list.stream()
+            .flatMap(Stream::of)
+            .collect(Collectors.toList());
+
+        return new Object[][]{
+            {operator1, Arrays.asList(1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5)},
+            {operator2, Arrays.asList(1, 1, 2, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5)},
+            {operator3, Arrays.asList(1, 2, 3, 3, 4, 5, 4, 5, 6, 7, 5, 6, 7, 8, 9)},
+            {operator4, Arrays.asList(1, 2, 3, 4, 5)}
         };
     }
 }
