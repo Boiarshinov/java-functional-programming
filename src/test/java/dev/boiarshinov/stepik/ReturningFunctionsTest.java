@@ -23,7 +23,7 @@ public class ReturningFunctionsTest {
      * Exercise 2.33 "Currying functions" task 1.
      */
     @Test(dataProvider = "sumOfLevels")
-    private void sumOfLevels(final Integer a, final Integer b, final Integer c, final Integer expected) {
+    public void sumOfLevels(final Integer a, final Integer b, final Integer c, final Integer expected) {
         Function<Integer, Function<Integer, Function<Integer, Integer>>> function =
             x -> y -> z -> x + y * y + z * z * z;
 
@@ -48,7 +48,7 @@ public class ReturningFunctionsTest {
      * Exercise 2.33 "Currying functions" task 2.
      */
     @Test(dataProvider = "sumOfStrings")
-    private void sumOfStrings(final String a, final String b, final String c, final String d, final String expected) {
+    public void sumOfStrings(final String a, final String b, final String c, final String d, final String expected) {
         Function<String, Function<String, Function<String, Function<String, String>>>> function =
             word1 -> word2 -> word3 -> word4 -> word1.toLowerCase() + word3.toUpperCase() +
                 word2.toLowerCase() + word4.toUpperCase();
@@ -74,7 +74,7 @@ public class ReturningFunctionsTest {
      * Exercise 2.34 "Multifunctional mapper".
      */
     @Test(dataProvider = "multifunctional")
-    private void multifunctional(final List<Integer> numbers,
+    public void multifunctional(final List<Integer> numbers,
                                  final List<Integer> expectedIdentity,
                                  final List<Integer> expectedMult,
                                  final List<Integer> expectedSquare)
@@ -118,7 +118,7 @@ public class ReturningFunctionsTest {
      * Exercise 2.35 "Custom integer reducer".
      */
     @Test(dataProvider = "integerReducer")
-    private void integerReducer(final int leftBoundary,
+    public void integerReducer(final int leftBoundary,
                                 final int rightBoundary,
                                 final int expectedSum,
                                 final int expectedProduct)

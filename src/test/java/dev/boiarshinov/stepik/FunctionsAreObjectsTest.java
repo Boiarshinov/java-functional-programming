@@ -23,7 +23,7 @@ public class FunctionsAreObjectsTest {
      * Usage examples of {@link Function#andThen(Function)} and {@link Function#compose(Function)}.
      */
     @Test
-    private void composeAndThen() {
+    public void composeAndThen() {
         final Function<Integer, Integer> sum = x -> x + 10;
         final Function<Integer, Integer> multiply = x -> x * 5;
 
@@ -39,7 +39,7 @@ public class FunctionsAreObjectsTest {
      * Usage examples of {@link Predicate#negate()} and {@link Predicate#or(Predicate)}.
      */
     @Test
-    private void predicates() {
+    public void predicates() {
         final IntPredicate isEven = x -> x % 2 == 0;
         final IntPredicate dividedBy3 = x -> x % 3 == 0;
         final IntPredicate oddOrDividedBy3 = isEven.negate().or(dividedBy3);
@@ -59,7 +59,7 @@ public class FunctionsAreObjectsTest {
      * Exercise 2.9 "Behaviour parametrization with lambda expressions".
      */
     @Test
-    private void behaviorParametrization() {
+    public void behaviorParametrization() {
         final Long BIG_CASH = 100_000_000L;
         final List<Account> accounts = Arrays.asList(
             new Account("Judy Doe", -5L, false),
@@ -91,7 +91,7 @@ public class FunctionsAreObjectsTest {
      * Exercise 2.10 "Your own functional interface".
      */
     @Test(dataProvider = "ternaryPredicate")
-    private void myOwnFunctionalInterface(int i, int j, int k, boolean areDifferent) {
+    public void myOwnFunctionalInterface(int i, int j, int k, boolean areDifferent) {
         final TernaryIntPredicate areAllDifferent = (a, b, c) -> a != b && b != c && c != a;
 
         Assert.assertEquals(areAllDifferent.test(i, j, k), areDifferent);
@@ -116,7 +116,7 @@ public class FunctionsAreObjectsTest {
      * Exercise 2.11 "Understanding of the function composition". Task 1.
      */
     @Test
-    private void unaryOperatorComposition() {
+    public void unaryOperatorComposition() {
         final IntUnaryOperator mult2 = num -> num * 2;
         final IntUnaryOperator add3 = num -> num + 3;
 
@@ -130,7 +130,7 @@ public class FunctionsAreObjectsTest {
      * Exercise 2.11 "Understanding of the function composition". Task 2.
      */
     @Test
-    private void functionComposition() {
+    public void functionComposition() {
         final Consumer<Integer> printer = System.out::println;
         final Consumer<Integer> devNull = (val) -> { int v = val * 2; };
 
@@ -142,7 +142,7 @@ public class FunctionsAreObjectsTest {
      * Exercise 2.12 "Composing predicates".
      */
     @Test(dataProvider = "disjunction")
-    private void listDisjunction(int input, List<IntPredicate> predicates, boolean expected) {
+    public void listDisjunction(int input, List<IntPredicate> predicates, boolean expected) {
         Assert.assertEquals(disjunctAll(predicates).test(input), expected);
         Assert.assertEquals(disjunctAllByStreams(predicates).test(input), expected);
     }
@@ -198,7 +198,7 @@ public class FunctionsAreObjectsTest {
      * Exercise 2.14 "The chain of responsibility pattern in the functional style".
      */
     @Test
-    private void chainOfResponsibility() {
+    public void chainOfResponsibility() {
         final String data =
             "<type>payment</type>" +
             "<sum>100000</sum>" +

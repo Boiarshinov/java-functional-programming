@@ -23,7 +23,7 @@ public class IntroductionToCollectorsTest {
      * Exercise 2.26 "Collectors in practice: the product of squares".
      */
     @Test(dataProvider = "productionOfSquares")
-    private void productOfSquares(List<Integer> numbers, Integer expected) {
+    public void productOfSquares(List<Integer> numbers, Integer expected) {
         final Integer actual = numbers.stream().collect(Collectors.reducing(1, (acc, n) -> acc *= n * n));
 
         Assert.assertEquals(actual, expected);
@@ -46,7 +46,7 @@ public class IntroductionToCollectorsTest {
      * Exercise 2.27 "Collectors in practice: partitioning words into groups".
      */
     @Test(dataProvider = "palindromeProvider")
-    private void palindromes(List<String> words, Map<Boolean, List<String>> expected) {
+    public void palindromes(List<String> words, Map<Boolean, List<String>> expected) {
         final Map<Boolean, List<String>> actual = words.stream()
             .collect(Collectors.partitioningBy(word -> new StringBuilder(word).reverse().toString().equals(word)));
 
@@ -80,7 +80,7 @@ public class IntroductionToCollectorsTest {
      * Exercise 2.28 "Almost like a SQL: the total sum of transactions by each account".
      */
     @Test
-    private void sumOfTransactions() {
+    public void sumOfTransactions() {
         final Account acc1 = new Account("01", 100L);
         final Account acc2 = new Account("02", 500L);
 
@@ -119,7 +119,7 @@ public class IntroductionToCollectorsTest {
      * Exercise 2.29 "Almost like a SQL: click count".
      */
     @Test
-    private void clickCount() {
+    public void clickCount() {
         final LogEntry entry1 = new LogEntry(new Date(), "John Doe", "/cats/info");
         final LogEntry entry2 = new LogEntry(new Date(), "Judy Doe", "/cats/info");
         final LogEntry entry3 = new LogEntry(new Date(), "John Doe", "/dogs/info");

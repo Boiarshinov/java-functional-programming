@@ -14,7 +14,7 @@ public class ParallelStreamsTest {
      * Exercise 2.31 "Parallel filtering of prime numbers".
      */
     @Test
-    private void parallelStream() {
+    public void parallelStream() {
         final long start = 1L;
         final long end = 20L;
         final long expectedCount = 9L;

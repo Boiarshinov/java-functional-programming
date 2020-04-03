@@ -16,7 +16,7 @@ public class OptionalTest {
      * Test for {@link Optional#empty}.
      */
     @Test
-    private void testEmpty() {
+    public void testEmpty() {
         final Optional<Object> empty = Optional.empty();
 
         Assert.assertFalse(empty.isPresent());
@@ -27,7 +27,7 @@ public class OptionalTest {
      * Test for {@link Optional#of} and also {@link Optional#get}.
      */
     @Test
-    private void testOf() {
+    public void testOf() {
         final Object okObject = new Object();
         final Object badObject = null;
 
@@ -42,7 +42,7 @@ public class OptionalTest {
      * Test for {@link Optional#ofNullable}.
      */
     @Test
-    private void testOfNullable() {
+    public void testOfNullable() {
         final Object okObject = new Object();
         final Object badObject = null;
         final Optional<Object> empty = Optional.empty();

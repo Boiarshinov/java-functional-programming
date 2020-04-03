@@ -25,7 +25,7 @@ public class MapReduceAndForEachTest {
      * Example of flatMap usage.
      */
     @Test
-    private void flatMapExample() {
+    public void flatMapExample() {
         final Book book1 = new Book("Java EE 7 Essentials", 2013, Arrays.asList("Arun Gupta"));
         final Book book2 = new Book("Algorithms", 2011, Arrays.asList("Robert Sedgewick", "Kevin Wayne"));
         final Book book3 = new Book("Clean code", 2014, Arrays.asList("Robert Martin"));
@@ -47,7 +47,7 @@ public class MapReduceAndForEachTest {
      * Exercise 2.20 "Calculating a factorial".
      */
     @Test(dataProvider = "factorial")
-    private void factorial(final long input, final long expected) {
+    public void factorial(final long input, final long expected) {
         Assert.assertEquals(factorial(input), expected);
     }
 
@@ -78,7 +78,7 @@ public class MapReduceAndForEachTest {
      * Exercise 2.21 "The sum of odd numbers".
      */
     @Test(dataProvider = "oddsSum")
-    private void oddsSumInRange(final long start, final long end, final long expected) {
+    public void oddsSumInRange(final long start, final long end, final long expected) {
         Assert.assertEquals(sumOfOddNumbersInRange(start, end), expected);
     }
 
@@ -108,7 +108,7 @@ public class MapReduceAndForEachTest {
      * Exercise 2.22 "Understanding of flatMap together with stream creating".
      */
     @Test(dataProvider = "flatMap")
-    private void flatMap(final UnaryOperator<List<Integer>> operator, final List<Integer> expected) {
+    public void flatMap(final UnaryOperator<List<Integer>> operator, final List<Integer> expected) {
         final List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
         final List<Integer> actual = operator.apply(numbers);
@@ -153,7 +153,7 @@ public class MapReduceAndForEachTest {
      * Exercise 2.23 "The general number of employees".
      */
     @Test
-    private void flattingObjectsFields() {
+    public void flattingObjectsFields() {
         final Employee william = new Employee("William", 20_000L);
         final Employee sophia = new Employee("Sophia", 10_000L);
         final Employee john = new Employee("John", 50_000L);
@@ -186,7 +186,7 @@ public class MapReduceAndForEachTest {
      * Exercise 2.24 "The total sum of canceled transactions".
      */
     @Test
-    private void transactionSum() {
+    public void transactionSum() {
         final Transaction transaction1 = new Transaction("774cedda", State.CANCELED, 1000L, new Date());
         final Account account1 = new Account("1001", 0L, Collections.singletonList(transaction1));
         final Transaction transaction2 = new Transaction("337868a7", State.FINISHED, 8000L, new Date());
@@ -246,7 +246,7 @@ public class MapReduceAndForEachTest {
      * Class for exercise 2.24.
      */
     @Data
-    class Transaction {
+    static class Transaction {
         private final String uuid;
         private final State state;
         private final Long sum;
@@ -257,7 +257,7 @@ public class MapReduceAndForEachTest {
      * Enum for exercise 2.24.
      */
     enum State {
-        CANCELED, FINISHED, PROCESSING
+        CANCELED, FINISHED
     }
 
     /**

@@ -22,7 +22,7 @@ public class IntroductionToStreamsTest {
      * Usage examples of {@link IntStream#summaryStatistics()}.
      */
     @Test
-    private void summaryStatistics() {
+    public void summaryStatistics() {
         final IntSummaryStatistics statistics = IntStream.rangeClosed(1, 55_555).summaryStatistics();
 
         Assert.assertEquals(statistics.getCount(), 55_555);
@@ -36,7 +36,7 @@ public class IntroductionToStreamsTest {
      * Exercise 2.17 "Checking if a number is prime".
      */
     @Test(dataProvider = "primeNumbers")
-    private void primeNumbers(final long input, final boolean expected) {
+    public void primeNumbers(final long input, final boolean expected) {
         boolean actual = isPrime(input);
 
         Assert.assertEquals(actual, expected);
@@ -70,7 +70,7 @@ public class IntroductionToStreamsTest {
      * Exercise 2.18 "Bad words detecting".
      */
     @Test
-    private void badWords() {
+    public void badWords() {
         final String text = "Вован пидр лох негодник лох";
         final List<String> badWords = Arrays.asList("петух", "пидр", "лох");
         final List<String> expected = Arrays.asList("лох", "пидр");
@@ -96,7 +96,7 @@ public class IntroductionToStreamsTest {
      * Exercise 2.19 "Numbers filtering".
      */
     @Test(dataProvider = "mixTwoStreams")
-    private void mixTwoStreams(int[] evens, int[] odds, int[] expectedInts) {
+    public void mixTwoStreams(int[] evens, int[] odds, int[] expectedInts) {
         final IntStream evenStream = Arrays.stream(evens);
         final IntStream oddStream = Arrays.stream(odds);
 

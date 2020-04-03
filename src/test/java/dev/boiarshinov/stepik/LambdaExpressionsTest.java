@@ -22,7 +22,7 @@ public class LambdaExpressionsTest {
      * Exercise 2.2 of the course. Task 1.
      */
     @Test
-    private void testGetMaxOfTwo() {
+    public void testGetMaxOfTwo() {
         BinaryOperator<Integer> getMaxOfTwo = (a, b) -> a >= b ? a : b;
         final Integer SMALL = 5;
         final Integer BIG = 10;
@@ -34,7 +34,7 @@ public class LambdaExpressionsTest {
      * Exercise 2.2 of the course. Task 2.
      */
     @Test
-    private void testGetNextEven() {
+    public void testGetNextEven() {
         UnaryOperator<Integer> getNextEvenNumber = (num) -> num % 2 == 0 ? num + 2 : num + 1;
         final Integer EVEN = 4;
         final Integer ODD = 5;
@@ -48,7 +48,7 @@ public class LambdaExpressionsTest {
      * Exercise 2.3 of the course.
      */
     @Test(dataProvider = "appendAndUpperCase")
-    private void testTooManyArguments(
+    public void testTooManyArguments(
         String s1, String s2, String s3, String s4, String s5, String s6, String s7, String expected)
     {
         SevenStringsFunction appendAndUpperCase = (first, second, third, fourth, fifth, sixth, seventh) ->
@@ -75,7 +75,7 @@ public class LambdaExpressionsTest {
      * Exercise 2.4 of the course.
      */
     @Test(dataProvider = "production")
-    private void testProductionOfRange(Long leftBorder, Long rightBorder, Long expected) {
+    public void testProductionOfRange(Long leftBorder, Long rightBorder, Long expected) {
         BinaryOperator<Long> productionOfRange = (left, right) -> {
             long production = 1L;
             for (long i = left; i <= right; i++) {
@@ -117,7 +117,7 @@ public class LambdaExpressionsTest {
      * Exercise 2.5 of the course.
      */
     @Test(dataProvider = "distinct")
-    private void testDistinct(List<String> inputList, List<String> expected) {
+    public void testDistinct(List<String> inputList, List<String> expected) {
         UnaryOperator<List<String>> distinct = strings -> strings.stream().distinct().collect(Collectors.toList());
         //The most popular solution from course.
         UnaryOperator<List<String>> distinctBySet = strings -> new ArrayList<>(new HashSet<>(strings));
@@ -151,7 +151,7 @@ public class LambdaExpressionsTest {
      * Exercise 2.6 of the course. Task 1.
      */
     @Test(dataProvider = "quadraticEquation")
-    private void testQuadraticEquation(final Integer a, final Integer b, final Integer c, Double input, Double expected) {
+    public void testQuadraticEquation(final Integer a, final Integer b, final Integer c, Double input, Double expected) {
         DoubleUnaryOperator quadraticEquation = x -> a * x * x + b * x + c;
 
         int compareResult = Double.compare(quadraticEquation.applyAsDouble(input), expected);
@@ -177,7 +177,7 @@ public class LambdaExpressionsTest {
      * Exercise 2.6 of the course. Task 2.
      */
     @Test
-    private void testAdditionalAdder() {
+    public void testAdditionalAdder() {
         final String suffix = "ism";
         final String prefix = "para";
 
