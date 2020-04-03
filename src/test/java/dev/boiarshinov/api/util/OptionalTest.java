@@ -1,6 +1,5 @@
 package dev.boiarshinov.api.util;
 
-import com.google.common.base.Supplier;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import org.testng.Assert;
