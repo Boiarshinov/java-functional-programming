@@ -75,9 +75,9 @@ public class ReturningFunctionsTest {
      */
     @Test(dataProvider = "multifunctional")
     public void multifunctional(final List<Integer> numbers,
-                                 final List<Integer> expectedIdentity,
-                                 final List<Integer> expectedMult,
-                                 final List<Integer> expectedSquare)
+                                final List<Integer> expectedIdentity,
+                                final List<Integer> expectedMult,
+                                final List<Integer> expectedSquare)
     {
         final Function<List<IntUnaryOperator>, UnaryOperator<List<Integer>>> multifunctionalMapper =
             intUnaryOperators -> intList -> intList
@@ -103,7 +103,7 @@ public class ReturningFunctionsTest {
 
     /**
      * Data provider for exercise 2.34.
-     * @return .
+     * @return input list of numbers and three expected lists of numbers for each operator.
      */
     @DataProvider
     public static Object[][] multifunctional() {
@@ -112,7 +112,6 @@ public class ReturningFunctionsTest {
             {Arrays.asList(1, 2, 3), Arrays.asList(1, 2, 3), Arrays.asList(3, 5, 7), Arrays.asList(2, 6, 10)}
         };
     }
-
 
     /**
      * Exercise 2.35 "Custom integer reducer".

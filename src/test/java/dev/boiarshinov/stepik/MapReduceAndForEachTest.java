@@ -222,6 +222,7 @@ public class MapReduceAndForEachTest {
         private final int year;
         private final List<String> authors;
     }
+
     /**
      * Class for exercise 2.23.
      */
@@ -231,6 +232,7 @@ public class MapReduceAndForEachTest {
         private final String name;
         private final Long salary;
     }
+
     /**
      * Class for exercise 2.23.
      */

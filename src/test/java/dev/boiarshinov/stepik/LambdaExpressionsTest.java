@@ -13,13 +13,13 @@ import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 /**
- * Class for testing lambda-expressions from exercises 2.2-2.6 of the course.
- * These exercises are related to topic 1.2 - Lambda expressions and Method references.
+ * These tests are related to topic 1.2 - Lambda expressions and Method references.
+ * Part of these tests are solutions of exercises 2.2-2.6.
  */
 public class LambdaExpressionsTest {
 
     /**
-     * Exercise 2.2 of the course. Task 1.
+     * Exercise 2.2 "Writing simple lambda expressions" task 1.
      */
     @Test
     public void testGetMaxOfTwo() {
@@ -31,7 +31,7 @@ public class LambdaExpressionsTest {
     }
 
     /**
-     * Exercise 2.2 of the course. Task 2.
+     * Exercise 2.2 "Writing simple lambda expressions" task 2.
      */
     @Test
     public void testGetNextEven() {
@@ -45,7 +45,7 @@ public class LambdaExpressionsTest {
     }
 
     /**
-     * Exercise 2.3 of the course.
+     * Exercise 2.3 "Too many arguments".
      */
     @Test(dataProvider = "appendAndUpperCase")
     public void testTooManyArguments(
@@ -72,7 +72,7 @@ public class LambdaExpressionsTest {
     }
 
     /**
-     * Exercise 2.4 of the course.
+     * Exercise 2.4 "Calculating production of all numbers in the range".
      */
     @Test(dataProvider = "production")
     public void testProductionOfRange(Long leftBorder, Long rightBorder, Long expected) {
@@ -114,7 +114,7 @@ public class LambdaExpressionsTest {
     }
 
     /**
-     * Exercise 2.5 of the course.
+     * Exercise 2.5 "Getting distinct strings".
      */
     @Test(dataProvider = "distinct")
     public void testDistinct(List<String> inputList, List<String> expected) {
@@ -148,10 +148,15 @@ public class LambdaExpressionsTest {
     }
 
     /**
-     * Exercise 2.6 of the course. Task 1.
+     * Exercise 2.6 "Writing closures" task 1.
      */
     @Test(dataProvider = "quadraticEquation")
-    public void testQuadraticEquation(final Integer a, final Integer b, final Integer c, Double input, Double expected) {
+    public void testQuadraticEquation(final Integer a,
+                                      final Integer b,
+                                      final Integer c,
+                                      final Double input,
+                                      final Double expected)
+    {
         DoubleUnaryOperator quadraticEquation = x -> a * x * x + b * x + c;
 
         int compareResult = Double.compare(quadraticEquation.applyAsDouble(input), expected);
@@ -174,7 +179,7 @@ public class LambdaExpressionsTest {
     }
 
     /**
-     * Exercise 2.6 of the course. Task 2.
+     * Exercise 2.6 "Writing closures" task 2.
      */
     @Test
     public void testAdditionalAdder() {
@@ -194,6 +199,12 @@ public class LambdaExpressionsTest {
      */
     @FunctionalInterface
     interface SevenStringsFunction {
-        String apply(String first, String second, String third, String fourth, String fifth, String sixth, String seventh);
+        String apply(String first,
+                     String second,
+                     String third,
+                     String fourth,
+                     String fifth,
+                     String sixth,
+                     String seventh);
     }
 }
