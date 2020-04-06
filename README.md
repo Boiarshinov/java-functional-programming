@@ -1,15 +1,15 @@
 
-##About
+## About
 //todo write
 
-##Courses
+## Courses
 
 - [x] Stepik.org - [Java. Functional programming][Stepic]
 
 [Stepic]: https://stepik.org/course/1595/
 
 
-##Books
+## Books
 
 - [ ] Richard Warburton - Java 8 Lambdas. Functional programming for the masses: [En][Warburton-en], [Ru][Warburton-ru]  
 - [ ] Pierre-Yves Saumont - Functional programming in Java: [En][Saumont]
@@ -19,7 +19,7 @@
 [Saumont]: https://www.manning.com/books/functional-programming-in-java
 
 
-##Videos
+## Videos
 
 English:
 - [ ] null
@@ -36,7 +36,7 @@ Russian:
 [Kuksenko-2]: https://www.youtube.com/watch?v=i0Jr2l3jrDA
 
 
-##Links
+## Links
 
 English:
 - [ ] Java 8 tutorial. [HowToDoInJava][HowToDoInJava]
