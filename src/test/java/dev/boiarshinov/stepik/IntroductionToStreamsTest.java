@@ -123,7 +123,7 @@ public class IntroductionToStreamsTest {
 
     /**
      * Data provider for exercise 2.19.
-     * @return two input intStreams and expected result IntStream.
+     * @return two input IntStreams and expected result IntStream.
      */
     @DataProvider(name = "mixTwoStreams")
     public Object[][] provideIntStreams() {
