@@ -41,6 +41,16 @@ Russian:
 English:
 - [ ] Java 8 tutorial. [HowToDoInJava][HowToDoInJava]
 - [x] Java 8 Optional use-cases. [DZone][Optional]
+- [ ] What's wrong with Java 8: Currying vs Closures. [DZone][Wrong-1]
+- [ ] What's wrong in Java 8, Part II: Functions & Primitives. [DZone][Wrong-2]
+- [ ] What's wrong in Java 8, Part III: Streams and Parallel Streams. [DZone][Wrong-3]
+- [ ] What's wrong in Java 8, Part IV: Monads. [DZone][Wrong-4]
+- [ ] What's wrong in Java 8, Part V: Tuples. [DZone][Wrong-5]
+- [ ] What's wrong in Java 8, Part VI: Strictness. [DZone][Wrong-6]
+- [ ] What's wrong in Java 8, Part VII: Streams again. [DZone][Wrong-7]
+
+Also:
+* Look at the full list of Pierre-Yves Saumont articles: [DZone][Saumont]
 
 Russian:
 - [ ] Полное руководство с анимированными операциями. [Annimon][Animated]
@@ -49,6 +59,14 @@ Russian:
 
 [HowToDoInJava]: https://howtodoinjava.com/java-8-tutorial/
 [Optional]: https://dzone.com/articles/java-8-optional-use-cases
+[Wrong-1]: https://dzone.com/articles/whats-wrong-java-8-currying-vs
+[Wrong-2]: https://dzone.com/articles/whats-wrong-java-8-part-ii
+[Wrong-3]: https://dzone.com/articles/whats-wrong-java-8-part-iii
+[Wrong-4]: https://dzone.com/articles/whats-wrong-java-8-part-iv
+[Wrong-5]: https://dzone.com/articles/whats-wrong-java-8-part-v
+[Wrong-6]: https://dzone.com/articles/whats-wrong-java-8-part-vi
+[Wrong-7]: https://dzone.com/articles/whats-wrong-java-8-part-vii
+[Saumont]: https://dzone.com/users/38615/ps24890.html
 [Animated]: https://annimon.com/article/2778
 [Habr-1]: https://habr.com/ru/company/luxoft/blog/270383/
 [Habr-Tagir]: https://habr.com/ru/post/262139/
