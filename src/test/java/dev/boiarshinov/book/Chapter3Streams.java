@@ -4,6 +4,8 @@ import dev.boiarshinov.book.model.Album;
 import dev.boiarshinov.book.model.Artist;
 import dev.boiarshinov.book.model.Track;
 import dev.boiarshinov.util.AssertCustomUtils;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -33,10 +35,6 @@ public class Chapter3Streams {
         return numbers.reduce(0, Integer::sum);
     }
 
-    /**
-     * Data provider for Exercise 1 -> task A.
-     * @return input data and expected result.
-     */
     @DataProvider
     private Object[][] sumOfNumbersProvider() {
         return new Object[][]{
@@ -60,8 +58,7 @@ public class Chapter3Streams {
 
     private List<String> getArtistsOrigins(Artist musician) {
         return Stream.of(musician)
-            .flatMap(artist -> artist.getMembers().stream())
-            .map(member -> member.getName() + ": " + member.getOrigin())
+            .flatMap(artist -> Stream.of(musician.getName(), musician.getOrigin()))
             .collect(Collectors.toList());
     }
 
@@ -212,7 +209,7 @@ public class Chapter3Streams {
     }
 
     @DataProvider
-    public static Object[][] stringsProvider() {
+    private Object[][] stringsProvider() {
         return new Object[][] {
             {Arrays.asList("no uppercases", "One uppercase", "A Lot Of"), "A Lot Of"},
             {Arrays.asList("no uppercases", "no uppercases 2"), "no uppercases"},
@@ -220,5 +217,65 @@ public class Chapter3Streams {
         };
     }
 
-    //todo: add extended difficulty exercises
+    /**
+     * Increased complexity exercise 1. Write map() using only reduce().
+     */
+    @Test
+    public void testMapByReduce() {
+        final Stream<String> inputStream = Stream.of("a", "ab", "abc");
+        final Function<String, Integer> function = String::length;
+        final List<Integer> expectedLengths = Arrays.asList(1, 2, 3);
+
+        final Stream<Integer> mappedStream = this.mapByReduce(inputStream, function);
+
+        final List<Integer> actualLengths = mappedStream.collect(Collectors.toList());
+
+        Assert.assertEquals(actualLengths, expectedLengths);
+    }
+
+    private <T, R> Stream<R> mapByReduce(Stream<T> stream, Function<T, R> function) {
+        return stream.reduce(
+            new ArrayList<R>(),
+            (list, element) -> {
+                list.add(function.apply(element));
+                return list;
+            },
+            (accList, listToAdd) -> {
+                accList.addAll(listToAdd);
+                return accList;
+            })
+            .stream();
+    }
+
+    /**
+     * Increased complexity exercise 2. Write filter() using only reduce().
+     */
+    @Test
+    public void testFilterByReduce() {
+        final Stream<String> inputStream = Stream.of("a", "ab", "abc", "abcd");
+        final Predicate<String> predicate = s -> s.length() > 2;
+        final List<String> expectedLengths = Arrays.asList("abc", "abcd");
+
+        final Stream<String> filteredStream = this.filterByReduce(inputStream, predicate);
+
+        final List<String> actualLengths = filteredStream.collect(Collectors.toList());
+
+        Assert.assertEquals(actualLengths, expectedLengths);
+    }
+
+    private <T> Stream<T> filterByReduce(Stream<T> stream, Predicate<T> predicate) {
+        return stream.reduce(
+            new ArrayList<T>(),
+            (list, element) -> {
+                if (predicate.test(element)) {
+                    list.add(element);
+                }
+                return list;
+            },
+            (accList, listToAdd) -> {
+                accList.addAll(listToAdd);
+                return accList;
+            })
+            .stream();
+    }
 }
