@@ -1,17 +1,30 @@
 
 ## About
-//todo write
+This project is my studying notes that I wrote while learning **functional programming in Java**.  
+My notes about Java 8 new classes [here][Docs].
+List of notes:
+- [Optional][Optional]
+
+Answers for hard exercises of the course [Java. Functional programming][Stepik] are [here][StepikExercises].  
+Answers for exercises from the book "Richard Warburton - Java 8 Lambdas" are [here][BookExercises].  
+Also [there][TestClasses] is tests for new Java 8 classes.
+
+[Docs]: /docs
+[Optional]: /docs/Optional.md
+[BookExercises]: /src/test/java/dev/boiarshinov/book
+[StepikExercises]: /src/test/java/dev/boiarshinov/stepik
+[TestClasses]: /src/test/java/dev/boiarshinov/api
 
 ## Courses
 
-- [x] Stepik.org - [Java. Functional programming][Stepic]
+- [x] Stepik.org - [Java. Functional programming][Stepik]
 
-[Stepic]: https://stepik.org/course/1595/
+[Stepik]: https://stepik.org/course/1595/
 
 
 ## Books
 
-- [ ] Richard Warburton - Java 8 Lambdas. Functional programming for the masses: [En][Warburton-en], [Ru][Warburton-ru]. [GitHub][Warburton-git]  
+- [x] Richard Warburton - Java 8 Lambdas. Functional programming for the masses: [En][Warburton-en], [Ru][Warburton-ru]. [GitHub][Warburton-git]  
 - [ ] Pierre-Yves Saumont - Functional programming in Java: [En][Saumont]
 
 [Warburton-en]: https://www.oreilly.com/library/view/java-8-lambdas/9781449370831/
@@ -29,14 +42,16 @@ Russian:
 - [x] Тагир Валеев - Stream API: рекомендации лучших собаководов (2016). [YouTube][Tagir-1]
 - [ ] Тагир Валеев - Странности Stream API (2016). [YouTube][Tagir-2]
 - [ ] Тагир Валеев - Причуды Stream API (2016). [YouTube][Tagir-3]
-- [ ] Сергей Куксенко - Stream API, часть 1. [YouTube][Kuksenko-1]
+- [x] Сергей Куксенко - Stream API, часть 1. [YouTube][Kuksenko-1]
 - [ ] Сергей Куксенко - Stream API, часть 2. [YouTube][Kuksenko-2]
+- [ ] Андрей Родионов - От Java Threads к лямбдам (2014). [Youtube][Rodionov]
 
 [Tagir-1]: https://www.youtube.com/watch?v=vxikpWnnnCU
 [Tagir-2]: https://www.youtube.com/watch?v=TPHMyVyktsw&t=8s
 [Tagir-3]: https://www.youtube.com/watch?v=1_Zj3gS_a3E 
 [Kuksenko-1]: https://www.youtube.com/watch?v=O8oN4KSZEXE
 [Kuksenko-2]: https://www.youtube.com/watch?v=i0Jr2l3jrDA
+[Rodionov]: https://www.youtube.com/watch?v=W82D9eUn6q8
 
 
 ## Links
@@ -44,7 +59,7 @@ Russian:
 English:
 - [ ] Java 8 tutorial. [HowToDoInJava][HowToDoInJava]
 - [x] Java 8 Optional use-cases. [DZone][Optional]
-- [ ] What's wrong with Java 8: Currying vs Closures. [DZone][Wrong-1]
+- [ ] What's wrong in Java 8, Part I: Currying vs Closures. [DZone][Wrong-1]
 - [ ] What's wrong in Java 8, Part II: Functions & Primitives. [DZone][Wrong-2]
 - [ ] What's wrong in Java 8, Part III: Streams and Parallel Streams. [DZone][Wrong-3]
 - [ ] What's wrong in Java 8, Part IV: Monads. [DZone][Wrong-4]
