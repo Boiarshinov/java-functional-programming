@@ -1,28 +1,79 @@
 
-## About
-This project is my studying notes that I wrote while learning **functional programming in Java**.  
+# About #
+
+This project is my studying notes that I wrote while learning **functional programming in Java**.
+
+## Notes ##
+
 My notes about Java 8 new classes [here][Docs].
 List of notes:
-- [Optional][Optional]
-
-Answers for hard exercises of the course [Java. Functional programming][Stepik] are [here][StepikExercises].  
-Answers for exercises from the book "Richard Warburton - Java 8 Lambdas" are [here][BookExercises].  
-Also [there][TestClasses] is tests for new Java 8 classes.
+- [Optional][Optional] (RU)
 
 [Docs]: /docs
 [Optional]: /docs/Optional.md
-[BookExercises]: /src/test/java/dev/boiarshinov/book
-[StepikExercises]: /src/test/java/dev/boiarshinov/stepik
-[TestClasses]: /src/test/java/dev/boiarshinov/api
 
-## Courses
+## Stepik.org course "[Java. Functional programming][Stepik]"
+
+Answers for hard exercises of the course are [here][StepikExercises].  
+Grouped by theory lessons:
+- [1.2 Lambda expressions and method references][Course-1.2];
+- [1.3 Functions are objects][Course-1.3];
+- [1.4 Introduction to streams][Course-1.4];
+- [1.5 Learn more about map, reduce and forEach][Course-1.5];
+- [1.6 Collectors][Course-1.6];
+- [1.7 Parallel streams][Course-1.7];
+- [1.8 Returning functions and currying][Course-1.8];
+- [1.9 Monads and related things in Java 8][Course-1.9];
+
+[StepikExercises]: /src/test/java/dev/boiarshinov/stepik
+[Course-1.2]: /src/test/java/dev/boiarshinov/stepik/LambdaExpressionsTest.java
+[Course-1.3]: /src/test/java/dev/boiarshinov/stepik/FunctionsAreObjectsTest.java
+[Course-1.4]: /src/test/java/dev/boiarshinov/stepik/IntroductionToStreamsTest.java
+[Course-1.5]: /src/test/java/dev/boiarshinov/stepik/MapReduceAndForEachTest.java
+[Course-1.6]: /src/test/java/dev/boiarshinov/stepik/IntroductionToCollectorsTest.java
+[Course-1.7]: /src/test/java/dev/boiarshinov/stepik/ParallelStreamsTest.java
+[Course-1.8]: /src/test/java/dev/boiarshinov/stepik/ReturningFunctionsTest.java
+[Course-1.9]: /src/test/java/dev/boiarshinov/stepik/MonadsAndRelatedTest.java
+
+## Book "Richard Warburton - Java 8 Lambdas"
+
+Exercise answers from the book are [here][BookExercises].  
+Grouped by chapters:
+- [Chapter 2. Lambdas][BookChapter2];
+- [Chapter 3. Streams][BookChapter3];
+- [Chapter 4. Libraries][BookChapter4];
+- Chapter 5. Collections and Collectors.
+- Chapter 6. Data parallelism.
+
+Chapters 1, 7-10 have no exercises.
+
+[BookExercises]: /src/test/java/dev/boiarshinov/book
+[BookChapter2]: /src/test/java/dev/boiarshinov/book/Chapter2Lambdas.java
+[BookChapter3]: /src/test/java/dev/boiarshinov/book/Chapter3Streams.java
+[BookChapter4]: /src/test/java/dev/boiarshinov/book/Chapter4Libraries.java
+
+## Test for Java 8 API ##
+
+Also [there][TestClasses] is tests for new Java 8 classes.
+List of tests:
+- [Optional][TestOptional]
+
+[TestClasses]: /src/test/java/dev/boiarshinov/api
+[TestOptional]: /src/test/java/dev/boiarshinov/api/util/OptionalTest.java
+
+
+# Additional info # 
+
+Here is a list of additional materials to learn about Functional Programming in Java.
+
+## Courses ##
 
 - [x] Stepik.org - [Java. Functional programming][Stepik]
 
 [Stepik]: https://stepik.org/course/1595/
 
 
-## Books
+## Books ##
 
 - [x] Richard Warburton - Java 8 Lambdas. Functional programming for the masses: [En][Warburton-en], [Ru][Warburton-ru]. [GitHub][Warburton-git]  
 - [ ] Pierre-Yves Saumont - Functional programming in Java: [En][Saumont]
@@ -33,7 +84,7 @@ Also [there][TestClasses] is tests for new Java 8 classes.
 [Saumont]: https://www.manning.com/books/functional-programming-in-java
 
 
-## Videos
+## Videos ##
 
 English:
 - [ ] null
@@ -54,7 +105,7 @@ Russian:
 [Rodionov]: https://www.youtube.com/watch?v=W82D9eUn6q8
 
 
-## Links
+## Links ##
 
 English:
 - [ ] Java 8 tutorial. [HowToDoInJava][HowToDoInJava]
@@ -73,8 +124,8 @@ Also:
 
 Russian:
 - [ ] Полное руководство с анимированными операциями. [Annimon][Animated]
-- [ ] Шпаргалка Java программиста. Java Stream API. [Хабр][Habr-1]
-- [ ] Stream API: универсальная промежуточная операция. [Хабр][Habr-Tagir]
+- [ ] Шпаргалка Java программиста. Java Stream API (2015). [Хабр][Habr-Vedenin]
+- [ ] Stream API: универсальная промежуточная операция (2016). [Хабр][Habr-Tagir]
 
 [HowToDoInJava]: https://howtodoinjava.com/java-8-tutorial/
 [Optional]: https://dzone.com/articles/java-8-optional-use-cases
@@ -90,5 +141,5 @@ Russian:
 [Animated]: https://annimon.com/article/2778
 [Habr-1]: https://habr.com/ru/company/luxoft/blog/270383/
 [Habr-Tagir]: https://habr.com/ru/post/262139/
-
+[Habr-Vedenin]: https://habr.com/ru/company/luxoft/blog/270383/
 
