@@ -23,7 +23,7 @@ Grouped by theory lessons:
 - [1.6 Collectors][Course-1.6];
 - [1.7 Parallel streams][Course-1.7];
 - [1.8 Returning functions and currying][Course-1.8];
-- [1.9 Monads and related things in Java 8][Course-1.9];
+- [1.9 Monads and related things in Java 8][Course-1.9].
 
 [StepikExercises]: /src/test/java/dev/boiarshinov/stepik
 [Course-1.2]: /src/test/java/dev/boiarshinov/stepik/LambdaExpressionsTest.java
@@ -42,7 +42,7 @@ Grouped by chapters:
 - [Chapter 2. Lambdas][BookChapter2];
 - [Chapter 3. Streams][BookChapter3];
 - [Chapter 4. Libraries][BookChapter4];
-- Chapter 5. Collections and Collectors.
+- Chapter 5. Collections and Collectors;
 - Chapter 6. Data parallelism.
 
 Chapters 1, 7-10 have no exercises.
