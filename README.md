@@ -61,6 +61,14 @@ List of tests:
 [TestClasses]: /src/test/java/dev/boiarshinov/api
 [TestOptional]: /src/test/java/dev/boiarshinov/api/util/OptionalTest.java
 
+## Custom functional API ##
+
+Some standard java functional API improvements:
+- [ImprovedBooleanSupplier][ImprovedBooleanSupplier] - standard BooleanSupplier with added logical 
+functions (OR, AND, NEGATE). 
+
+[ImprovedBooleanSupplier]: /src/test/java/dev/boiarshinov/util/ImprovedBooleanSupplier.java
+
 
 # Additional info # 
 
