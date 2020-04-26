@@ -57,9 +57,13 @@ Chapters 1, 7-10 have no exercises.
 Also [there][TestClasses] is tests for new Java 8 classes.
 List of tests:
 - [Optional][TestOptional]
+- [Predicate][TestPredicate]
+- [Function][TestFunction]
 
 [TestClasses]: /src/test/java/dev/boiarshinov/api
 [TestOptional]: /src/test/java/dev/boiarshinov/api/util/OptionalTest.java
+[TestPredicate]: /src/test/java/dev/boiarshinov/api/util/function/PredicateTest.java
+[TestFunction]: /src/test/java/dev/boiarshinov/api/util/function/FunctionTest.java
 
 ## Custom functional API ##
 
