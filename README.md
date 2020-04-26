@@ -155,3 +155,11 @@ Russian:
 [Habr-Tagir]: https://habr.com/ru/post/262139/
 [Habr-Vedenin]: https://habr.com/ru/company/luxoft/blog/270383/
 
+
+# Technologies #
+Additional libraries used in this project:
+- [Lombok][Lombok]
+- [TestNG][TestNG]
+
+[Lombok]: https://projectlombok.org/
+[TestNG]: https://testng.org/
