@@ -122,7 +122,7 @@ Russian:
 English:
 - [ ] Java 8 tutorial. [HowToDoInJava][HowToDoInJava]
 - [x] Java 8 Optional use-cases. [DZone][Optional]
-- [ ] What's wrong in Java 8, Part I: Currying vs Closures. [DZone][Wrong-1]
+- [x] What's wrong in Java 8, Part I: Currying vs Closures. [DZone][Wrong-1]. [Перевод][Wrong-1-Ru]
 - [ ] What's wrong in Java 8, Part II: Functions & Primitives. [DZone][Wrong-2]
 - [ ] What's wrong in Java 8, Part III: Streams and Parallel Streams. [DZone][Wrong-3]
 - [ ] What's wrong in Java 8, Part IV: Monads. [DZone][Wrong-4]
@@ -142,6 +142,7 @@ Russian:
 [HowToDoInJava]: https://howtodoinjava.com/java-8-tutorial/
 [Optional]: https://dzone.com/articles/java-8-optional-use-cases
 [Wrong-1]: https://dzone.com/articles/whats-wrong-java-8-currying-vs
+[Wrong-1-Ru]: docs/translations/Wrong_in_Java_8_Part_1.md
 [Wrong-2]: https://dzone.com/articles/whats-wrong-java-8-part-ii
 [Wrong-3]: https://dzone.com/articles/whats-wrong-java-8-part-iii
 [Wrong-4]: https://dzone.com/articles/whats-wrong-java-8-part-iv
