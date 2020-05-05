@@ -15,11 +15,10 @@
 
 Пример, который он приводит, близок к следующему:
 ```java
-
 String getString() {
   //method returning a String or null, such as get on a Map<String, String>
 }
-Option<String> optionalString = Optional.ofNullable(getString());
+Optional<String> optionalString = Optional.ofNullable(getString());
 optionalString.ifPresent(System.out::toString);
 ```
 Он спрашивает в чем смысл использования `Optional`, если то же самое можно сделать и без него:
@@ -105,7 +104,7 @@ if (person.isPresent()) {
 }
 ```
 Но это пример того как **не нужно** пользоваться `Optional`. 
-`Optional` - это монада и им нужно пользоваться в соответствующем стиле:
+Класс `Optional` - это монада и им нужно пользоваться в соответствующем стиле:
 ```java
 personMap.find("Name")
    .flatMap(Person::getAddress)
@@ -122,7 +121,7 @@ public static class Map<T, U> extends HashMap<T, U> {
 ```
 а методы `getAddress` и `getCity` возвращают `Optional<Address>` и `Optional<City>` соответственно.
 
-Примечание 1: в примере выше мы использовали ссылки на методы, чтобы сделать код немного чище.
+Примечание 1 - в примере выше мы использовали ссылки на методы, чтобы сделать код немного чище.
 Кто-то может сказать, что ссылки на методы не являются функциями.
 Хотя по сути ссылка на метод - это синтаксический сахар поверх:
 ```java
@@ -133,7 +132,7 @@ personMap.find("Name")
 ``` 
 Здесь `x -> x.getAddress()` - это функция преобразования `T -> M<U>`.
 
-Примечание 2: заметьте, что `ifPresent` - это то же самое, что `forEach` для коллекций и стримов.
+Примечание 2 - заметьте, что `ifPresent` - это то же самое, что `forEach` для коллекций и стримов.
 Этот метод должен был быть назван `forEach`, несмотря на то, что в `Optional` содержится не более
 одного элемента.
 Тогда связь между монадой `Optional` и монадой `List` была бы более очевидной.
