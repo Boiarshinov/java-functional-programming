@@ -126,7 +126,7 @@ English:
 - [x] What's wrong in Java 8, Part II: Functions & Primitives. [DZone][Wrong-2]. [Перевод][Wrong-2-Ru]
 - [x] What's wrong in Java 8, Part III: Streams and Parallel Streams. [DZone][Wrong-3]. [Перевод][Wrong-3-Ru]
 - [x] What's wrong in Java 8, Part IV: Monads. [DZone][Wrong-4]. [Перевод][Wrong-4-Ru]
-- [ ] What's wrong in Java 8, Part V: Tuples. [DZone][Wrong-5]
+- [x] What's wrong in Java 8, Part V: Tuples. [DZone][Wrong-5]. [Перевод][Wrong-5-Ru]
 - [ ] What's wrong in Java 8, Part VI: Strictness. [DZone][Wrong-6]
 - [ ] What's wrong in Java 8, Part VII: Streams again. [DZone][Wrong-7]
 
@@ -150,6 +150,7 @@ Russian:
 [Wrong-4]: https://dzone.com/articles/whats-wrong-java-8-part-iv
 [Wrong-4-Ru]: docs/translations/Wrong_in_Java_8_Part_4.md
 [Wrong-5]: https://dzone.com/articles/whats-wrong-java-8-part-v
+[Wrong-5-Ru]: docs/translations/Wrong_in_Java_8_Part_5.md
 [Wrong-6]: https://dzone.com/articles/whats-wrong-java-8-part-vi
 [Wrong-7]: https://dzone.com/articles/whats-wrong-java-8-part-vii
 [Saumont]: https://dzone.com/users/38615/ps24890.html
