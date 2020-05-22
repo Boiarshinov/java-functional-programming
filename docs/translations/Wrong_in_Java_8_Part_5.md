@@ -195,8 +195,11 @@ _Примечание переводчика_ - в стандартной биб
 _Примечание переводчика_ - существует библиотека [javatuples][JavaTuples], 
 в которой определены кортежы с количеством элементов от одного до десяти. 
 Все кортежи в библиотеке типобезопасны, сериализуемы, неизменяемы и реализуют интерфейс `Comparable`.
+Также существуют кортежи двойки и тройки (изменяемые и неизменяемые) в библиотеке 
+[Apache Commons Lang][ApacheCommonsLang] в пакете org.apache.commons.lang3.tuple.
 
 [OriginalLink]: https://dzone.com/articles/whats-wrong-java-8-part-v
 [Wrong-1-Ru]: Wrong_in_Java_8_Part_1.md
 [Wrong-6-Ru]: Wrong_in_Java_8_Part_6.md
 [JavaTuples]: https://www.javatuples.org
+[ApacheCommonsLang]: https://commons.apache.org/proper/commons-lang/
