@@ -137,7 +137,8 @@ Also:
 Russian:
 - [ ] Полное руководство с анимированными операциями. [Annimon][Animated]
 - [ ] Шпаргалка Java программиста. Java Stream API (2015). [Хабр][Habr-Vedenin]
-- [ ] Stream API: универсальная промежуточная операция (2016). [Хабр][Habr-Tagir]
+- [ ] Stream API: универсальная промежуточная операция (2016). [Хабр][Habr-Tagir-1]
+- [x] Используйте Stream API проще (или не используйте вообще) (2017) [Хабр][Habr-Tagir-2]
 
 [HowToDoInJava]: https://howtodoinjava.com/java-8-tutorial/
 [Optional]: https://dzone.com/articles/java-8-optional-use-cases
@@ -159,8 +160,9 @@ Russian:
 [Nurkiewicz]: https://dzone.com/users/370400/nurkiewicz.html
 [Animated]: https://annimon.com/article/2778
 [Habr-1]: https://habr.com/ru/company/luxoft/blog/270383/
-[Habr-Tagir]: https://habr.com/ru/post/262139/
 [Habr-Vedenin]: https://habr.com/ru/company/luxoft/blog/270383/
+[Habr-Tagir-1]: https://habr.com/ru/post/262139/
+[Habr-Tagir-2]: https://habr.com/ru/post/337350/
 
 
 # Technologies #
