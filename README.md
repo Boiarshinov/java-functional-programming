@@ -165,6 +165,15 @@ Russian:
 [Habr-Tagir-2]: https://habr.com/ru/post/337350/
 
 
+## Additional API ##
+
+- [Vavr][Vavr] - More functional programming features for Java
+- [StreamEx][StreamEx] - additional useful methods for Java Stream API.
+
+[Vavr]: https://www.vavr.io/
+[StreamEx]: https://github.com/amaembo/streamex
+
+
 # Technologies #
 Additional libraries used in this project:
 - [Lombok][Lombok]
